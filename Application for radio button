@@ -1,0 +1,84 @@
+XML 
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Application for Radio Button"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:id="@+id/instruction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose any Department"
+        android:textSize="16sp"
+        android:textAlignment="center"
+        android:layout_marginBottom="10dp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="10dp">
+
+        <RadioButton
+            android:id="@+id/bca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BCA" />
+
+        <RadioButton
+            android:id="@+id/bsc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BSC" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/print"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"/>
+</LinearLayout>
+
+
+Java 
+
+package com.example.myapplication13;
+
+import android.os.Bundle;
+import android.widget.RadioButton;
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        RadioButton bca = findViewById(R.id.bca);
+        RadioButton bsc = findViewById(R.id.bsc);
+        TextView result = findViewById(R.id.print);
+
+        bca.setOnClickListener(v -> result.setText("BCA Selected"));
+        bsc.setOnClickListener(v -> result.setText("BSC Selected"));
+    }
+}
